@@ -1,0 +1,66 @@
+※注意事項※
+この問題は、アプリケーションエンジニアとして転職することに興味がある方が対象です。
+上記以外の方は挑戦をご遠慮ください。
+
+
+JavaScriptを使ってhtmlタグの入れ子の違いを確認するプログラムを書きましょう。
+
+【依頼】
+先輩社員「昔作ったhtmlファイルがたくさんあって、そのなかのhtmlタグの入れ子に一部間違いがあるんだ」
+あなた「入れ子が間違っているというと、<div><span></div></span>のような状態ということですか？」
+先輩社員「そうだね。そこでhtmlの文字列を引数に取って、入れ子の違いがあるかないかを調べるクラスを作成してほしいんだ」
+あなた「大変そうですね。htmlタグのなかには、liタグのように閉じタグがあったりなかったりするものもあるし」
+先輩社員「その点については問題ない。詳しくは仕様の通りだけど、今回は7つのタグに限定されているんだ。それ以外のタグは気にしなくて良い」
+あなた「なるほど。それなら何とかなりそうですね」
+先輩社員「もしかしたら同僚のA君に、あとで7つ以外のタグをチェックするかもしれないので、コメントアウトでコードの説明も簡単にしておいてもらいたい」
+あなた「わかりました」
+先輩社員「ではできたら教えてくれ」
+
+【仕様】
+下記のhtmlタグの入れ子の間違いの有無のみを確認するcheck()メソッドを持つValidTagクラスを作成してください。
+check()メソッドは引数にhtml文字列をとり、booleanで結果を返します。
+htmlタグの入れ子の間違いがひとつでもあれば "false"、全部正しければ "true" としてください。
+
+・チェックする7つのhtmlタグ
+html, head, body, div, span, ul, form
+
+・以下のindex.htmlファイルを読み込んで、htmlタグの入れ子違いのチェックを行なってください。
+
+[index.html]
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ValidTag</title>
+    <script src="validtag.js"></script>
+    <script>
+        var validTag = new ValidTag();
+        console.log(validTag.check('<html><body></body></html>') === true);
+        console.log(validTag.check('<html><body lang="ja"></body></html>') === true);
+        console.log(validTag.check('<html><body>test text</body></html>') === true);
+        console.log(validTag.check('<html><body></html></body>') === false);
+        console.log(validTag.check('<html><body><a name="anchor"></body></html>') === true);
+        console.log(validTag.check('<html><body><a href="index.html">hoge</a></body></html>') === true);
+        console.log(validTag.check('<html><head><body></body></html>') === false);
+        console.log(validTag.check('<html><body></body></head></html>') === false);
+        console.log(validTag.check('<html><body><a name="anchor1"><a name="anchor2"></body></html>') === true);
+        console.log(validTag.check('<html><body><div>test<span>test</span></div></body></html>') === true);
+        console.log(validTag.check('<html><body><ul>test<li>test<li>test</ul></body></html>') === true);
+        console.log(validTag.check('<html><body><div>test<span>test</div>test</span></body></html>') === false);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+【解答方法】
+・作成したJavaScriptのコードをテキストファイル(.txt)に変換し、ファイルアップロードにて提出してください。
+
+・採点は以下の視点で行ないます。
+　○仕様通りに動作するか
+　○適切にコメント付けされているか
+　○変数名等は適切に命名されているか（可読性）
+　○その他、可読性の高いコードになっているか
+　○重複コード等無駄な記述やロジックはないか
+　○出題の意図を過不足無く捉えられているか
