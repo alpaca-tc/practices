@@ -1,0 +1,4 @@
+guard :rspec do
+  watch(/^.+\.rb$/)
+  watch(/^spec\/.+_spec\.rb$/)
+end
